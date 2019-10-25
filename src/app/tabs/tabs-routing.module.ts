@@ -8,12 +8,11 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'produtos',
         children: [
           {
             path: '',
-            loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+            loadChildren:'../produtos/lista-produtos/lista-produtos.module#ListaProdutosPageModule'
           }
         ]
       },
