@@ -12,7 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren:'../produtos/lista-produtos/lista-produtos.module#ListaProdutosPageModule'
+            loadChildren: '../produtos/lista-produtos/lista-produtos.module#ListaProdutosPageModule'
           }
         ]
       },
@@ -38,14 +38,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/produtos',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/produtos',
     pathMatch: 'full'
   }
 ];
