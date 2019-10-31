@@ -19,7 +19,6 @@ const routes: Routes = [
     SharedModule,
     CommonModule,
     FormsModule,
-    IonicModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ListaProdutosPage]
