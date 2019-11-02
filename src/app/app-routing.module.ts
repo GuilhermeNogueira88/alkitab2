@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'criar-conta', loadChildren: './usuarios/criar-conta/criar-conta.module#CriarContaPageModule' },
   { path: 'esqueci-senha', loadChildren: './usuarios/esqueci-senha/esqueci-senha.module#EsqueciSenhaPageModule' },
   { path: 'login', loadChildren: './usuarios/login/login.module#LoginPageModule' },
-  { path: 'perfil', loadChildren: './usuarios/perfil/perfil.module#PerfilPageModule' }
+  { path: 'perfil', loadChildren: './usuarios/perfil/perfil.module#PerfilPageModule' },  { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' }
+
 ];
 @NgModule({
   imports: [

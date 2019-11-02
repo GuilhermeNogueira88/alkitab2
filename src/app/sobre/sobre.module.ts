@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CriarContaPage } from './criar-conta.page';
-import { SharedModule } from 'src/app/core/shared/shared/shared.module';
+import { SobrePage } from './sobre.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CriarContaPage
+    component: SobrePage
   }
 ];
 
@@ -19,9 +18,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    SharedModule,
+    IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CriarContaPage]
+  declarations: [SobrePage]
 })
-export class CriarContaPageModule {}
+export class SobrePageModule {}

@@ -27,12 +27,37 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
+        path: 'perfil',
         children: [
           {
             path: '',
-            loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+            loadChildren: '../usuarios/perfil/perfil.module#PerfilPageModule'
+          }
+        ]
+      },
+      {
+      path: 'sobre',
+      children: [
+        {
+          path: '',
+          loadChildren: '../sobre/sobre.module#SobrePageModule'
+        }
+      ]
+    },
+      {
+        path: 'pedido',
+        children: [
+          {
+            path: 'carrinho/novo-item/:key',
+            loadChildren: '../pedidos/form-item-pedido/form-item-pedido.module#FormItemPedidoPageModule'
+          },
+          {
+            path: 'carrinho',
+            loadChildren: '../pedidos/lista-item-pedido/lista-item-pedido.module#ListaItemPedidoPageModule'
+          },
+          {
+            path: 'forma-pagamento',
+            loadChildren: '../pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule'
           }
         ]
       },
@@ -47,7 +72,41 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/produtos',
     pathMatch: 'full'
-  }
+  },
+
+  {
+    path: 'perfil',
+    children: [
+      {
+        path: '',
+        loadChildren: '../usuarios/perfil/perfil.module#PerfilPageModule'
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/produtos',
+    pathMatch: 'full'
+  },
+
+  {
+
+  path: 'usuarios',
+    children: [
+      {
+        path: 'enderecos',
+        loadChildren: '../enderecos/lista-endereco/lista-endereco.module#ListaEnderecoPageModule'
+      },
+      {
+        path: 'enderecos/novo',
+        loadChildren: '../enderecos/form-endereco/form-endereco.module#FormEnderecoPageModule'
+      },
+      {
+        path: 'enderecos/editar/:key',
+        loadChildren: '../enderecos/form-endereco/form-endereco.module#FormEnderecoPageModule'
+      }
+    ]
+  },
 ];
 
 @NgModule({
