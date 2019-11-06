@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ListaEnderecoPage } from 'src/app/enderecos/lista-endereco/lista-endereco.page';
 import { CarrinhoService } from '../shared/carrinho.service';
 import { AlertService } from 'src/app/core/shared/alert.service';
 import { Observable } from 'rxjs';
@@ -38,7 +37,7 @@ total: number;
     let qtd = itemPedido.quantidade;
     qtd--;
 
-    if (qtd <=0){
+    if (qtd <=0) {
       this.removerProduto(itemPedido);
     } else {
       this.atualizarTotal(itemPedido, qtd);

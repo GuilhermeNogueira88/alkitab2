@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class UsuariosService {
 
-  constructor(private afAuth:AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth) { }
 
   criarConta(usuario: any) {
     return new Promise((resolve, reject) => {

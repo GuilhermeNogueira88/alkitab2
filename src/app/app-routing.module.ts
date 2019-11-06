@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './usuarios/auth.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +11,10 @@ const routes: Routes = [
   { path: 'criar-conta', loadChildren: './usuarios/criar-conta/criar-conta.module#CriarContaPageModule' },
   { path: 'esqueci-senha', loadChildren: './usuarios/esqueci-senha/esqueci-senha.module#EsqueciSenhaPageModule' },
   { path: 'login', loadChildren: './usuarios/login/login.module#LoginPageModule' },
-  { path: 'perfil', loadChildren: './usuarios/perfil/perfil.module#PerfilPageModule' },  { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' }
+  { path: 'perfil', loadChildren: './usuarios/perfil/perfil.module#PerfilPageModule' },
+  { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },
+  { path: 'form-pagamento', loadChildren: './pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule' },
+  { path: 'lista-pedido', loadChildren: './pedidos/lista-pedido/lista-pedido.module#ListaPedidoPageModule' }
 
 ];
 @NgModule({

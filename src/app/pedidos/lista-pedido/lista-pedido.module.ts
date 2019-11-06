@@ -1,25 +1,28 @@
-import { SharedModule } from 'src/app/core/shared/shared/shared.module';
+import { SharedModule } from './../../core/shared/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FormItemPedidoPage } from './form-item-pedido.page';
+import { IonicModule } from '@ionic/angular';
+
+import { ListaPedidoPage } from './lista-pedido.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: FormItemPedidoPage
+    component: ListaPedidoPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    IonicModule,
     FormsModule,
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FormItemPedidoPage]
+  declarations: [ListaPedidoPage]
 })
-export class FormItemPedidoPageModule {}
+export class ListaPedidoPageModule {}
