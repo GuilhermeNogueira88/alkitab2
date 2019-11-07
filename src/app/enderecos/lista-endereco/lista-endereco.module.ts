@@ -1,9 +1,8 @@
+import { SharedModule } from 'src/app/core/shared/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
-import { IonicModule } from '@ionic/angular';
 
 import { ListaEnderecoPage } from './lista-endereco.page';
 
@@ -18,10 +17,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes),
-    ReactiveFormsModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
-  declarations: [ListaEnderecoPage]
+  declarations: []
 })
 export class ListaEnderecoPageModule {}

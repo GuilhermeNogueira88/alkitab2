@@ -21,7 +21,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren:'../pedidos/lista-pedido/lista-pedido.module#ListaProdutoPedidoPageModule'
+            loadChildren: '../pedidos/lista-pedido/lista-pedido.module#ListaPedidoPageModule'
           }
         ]
       },
@@ -35,28 +35,11 @@ const routes: Routes = [
         ]
       },
       {
-      path: 'sobre',
-      children: [
-        {
-          path: '',
-          loadChildren: '../sobre/sobre.module#SobrePageModule'
-        }
-      ]
-    },
-      {
-        path: 'pedido',
+        path: 'sobre',
         children: [
           {
-            path: 'carrinho/novo-item/:key',
-            loadChildren: '../pedidos/form-item-pedido/form-item-pedido.module#FormItemPedidoPageModule'
-          },
-          {
-            path: 'carrinho',
-            loadChildren: '../pedidos/lista-item-pedido/lista-item-pedido.module#ListaItemPedidoPageModule'
-          },
-          {
-            path: 'forma-pagamento',
-            loadChildren: '../pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule'
+            path: '',
+            loadChildren: '../sobre/sobre.module#SobrePageModule'
           }
         ]
       },
@@ -68,29 +51,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
-    redirectTo: '/tabs/produtos',
-    pathMatch: 'full'
-  },
-
-  {
-    path: 'perfil',
-    children: [
-      {
-        path: '',
-        loadChildren: '../usuarios/perfil/perfil.module#PerfilPageModule'
-      }
-    ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/produtos',
-    pathMatch: 'full'
-  },
-
-  {
-
-  path: 'usuarios',
+    path: 'usuarios',
     children: [
       {
         path: 'enderecos',
@@ -106,6 +67,32 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'pedido',
+    children: [
+      {
+        path: 'carrinho/novo-item/:key',
+        loadChildren: '../pedidos/form-item-pedido/form-item-pedido/form-item-pedido.module#FormItemPedidoPageModule'
+      },
+      {
+        path: 'carrinho',
+        loadChildren: '../pedidos/lista-item-pedido/lista-item-pedido.module#ListaItemPedidoPageModule'
+      },
+      {
+        path: 'forma-pagamento',
+        loadChildren: '../pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule'
+      },
+      {
+        path: 'produtos/:key',
+        loadChildren: '../pedidos/lista-produto-pedido/lista-produto-pedido.module#ListaProdutoPedidoPageModule'
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/produtos',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
@@ -113,3 +100,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class TabsPageRoutingModule {}
+

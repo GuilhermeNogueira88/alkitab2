@@ -24,9 +24,9 @@ constructor(private router: Router,
   ngOnInit() {
     this.produtos = this.produtosService.getAll();
     this.categorias = this.produtosService.getCategoriasAll();
-    // this.carrinhoService.carrinhoPossuiItens().subscribe( (existemItens: boolean) =>{
-    // this.carrinhoPossuiItens = existemItens;
-    // });
+    this.carrinhoService.carrinhoPossuiItens().subscribe( (existemItens: boolean) =>{
+    this.carrinhoPossuiItens = existemItens;
+     });
   }
 
 buscarProdutos() {
@@ -34,7 +34,7 @@ buscarProdutos() {
 }
 
 adicionarProduto(produtoKey: string) {
-  this.router.navigate(['pedidos/carrinho/novo-item/', produtoKey]);
+  this.router.navigate(['pedido/carrinho/novo-item/', produtoKey]);
   }
 
 }
