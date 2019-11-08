@@ -12,7 +12,7 @@ import { DatePipe } from '@angular/common';
 export class PedidoService {
 
   public static TIPO_FORMA_PAGAMENTO = {
-    DINHEIRO: 1,
+    BOLETO: 1,
     CARTAO: 2
   };
 
@@ -69,7 +69,7 @@ export class PedidoService {
       status: PedidoService.STATUS.ENVIADO,
       data: dataPedido,
       formPagamento: pedido.formaPagamento,
-      trocoPara: pedido.trocoPara,
+      // trocoPara: pedido.trocoPara,
       tipoCartao: pedido.tipoCartao,
       enderecoEntrega: pedido.enderecoEntrega,
       usuarioKey: this.afAuth.auth.currentUser.uid,
@@ -96,8 +96,8 @@ export class PedidoService {
 
   getFormaPagamentoNome(paymentType: number){
     switch(paymentType){
-      case PedidoService.TIPO_FORMA_PAGAMENTO.DINHEIRO:
-        return 'Dinheiro';
+      case PedidoService.TIPO_FORMA_PAGAMENTO.BOLETO:
+        return 'Boleto';
       case PedidoService.TIPO_FORMA_PAGAMENTO.CARTAO:
         return 'Cartão de crédito/débito';
     }

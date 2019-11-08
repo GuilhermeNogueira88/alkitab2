@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ToastService } from 'src/app/core/shared/toast.service';
 import { ListaEnderecoPage } from 'src/app/enderecos/lista-endereco/lista-endereco.page';
 
+
 @Component({
   selector: 'app-form-pagamento',
   templateUrl: './form-pagamento.page.html',
@@ -19,15 +20,15 @@ form: FormGroup;
 produtos: Observable<any[]>;
 total: number = 0;
 formasPagamento: Array<any> = [
-  {valor: PedidoService.TIPO_FORMA_PAGAMENTO.DINHEIRO, descricao: 'Dinheiro'},
+  {valor: PedidoService.TIPO_FORMA_PAGAMENTO.BOLETO, descricao: 'Boleto'},
   {valor: PedidoService.TIPO_FORMA_PAGAMENTO.CARTAO, descricao: 'Cartão de crédito/débito'}
 ];
 enderecoSelecionado: string = this.MENSAGEM_ENDERECO_VAZIO;
 
   constructor(private formBuilder: FormBuilder, private carrinhoService: CarrinhoService,
-    private modalCtrl: ModalController, private pedidoService: PedidoService,
-    private router: Router,
-    private toast: ToastService) { }
+              private modalCtrl: ModalController, private pedidoService: PedidoService,
+              private router: Router,
+              private toast: ToastService) { }
 
   ngOnInit() {
     this.criarFormulario();
@@ -42,7 +43,6 @@ enderecoSelecionado: string = this.MENSAGEM_ENDERECO_VAZIO;
   criarFormulario(){
     this.form = this.formBuilder.group({
       formaPagamento: [''],
-      trocoPara: [''],
       tipoCartao: [''],
       enderecoEntrega: [''],
       total: ['']
@@ -71,7 +71,7 @@ enderecoSelecionado: string = this.MENSAGEM_ENDERECO_VAZIO;
   }
 
   onSubmit(){
-    if (this.form.valid) {
+    if (this.form.value) {
       this.pedidoService.gerarPedido(this.form.value)
         .then(() => {
           this.toast.show('Pedido salvo com sucesso. Aguarde a confirmação.');
@@ -81,6 +81,6 @@ enderecoSelecionado: string = this.MENSAGEM_ENDERECO_VAZIO;
           this.toast.show('Erro ao salvar o pedido');
         });
       }
-  }
-
+}
+ 
 }

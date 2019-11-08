@@ -26,10 +26,9 @@
           </ion-select>
         </ion-item>
 
-        <!-- se for dinheiro -->
+        <!-- se for boleto -->
         <ion-item *ngIf="form.value.formaPagamento == 1">
-          <ion-label>Troco para</ion-label>
-          <ion-input type="number" step="1" formControlName="trocoPara"></ion-input>
+          <ion-label>Boleto</ion-label>
         </ion-item>
 
         <!-- se for cartão -->
@@ -41,6 +40,15 @@
             <ion-select-option value="Crédito - Mastercard">Crédito - Mastercard</ion-select-option>
             <ion-select-option value="Débito - Visa">Débito - Visa</ion-select-option>
             <ion-select-option value="Débito - Mastercard">Débito - Mastercard</ion-select-option>
+            <ion-select-option value="Débito - Elo">Débito - Elo</ion-select-option>
+            <ion-select-option value="Crédito - Elo">Crédito - Elo</ion-select-option>
+            <ion-select-option value="Débito - Dinners">Débito - Dinners</ion-select-option>
+            <ion-select-option value="Crédito - Dinners">Crédito - Dinners</ion-select-option>
+            <ion-select-option value="Débito - Hipercard">Débito - Hipercard</ion-select-option>
+            <ion-select-option value="Crédito - Hipercard">Crédito - Hipercard</ion-select-option>
+            <ion-select-option value="Débito - Hipercard">Débito - Hipercard</ion-select-option>
+            <ion-select-option value="Crédito - Hipercard">Crédito - Hipercard</ion-select-option>
+            
           </ion-select>
         </ion-item>
       </ion-item-group>

@@ -44,6 +44,15 @@ editar(key: string) {
   this.router.navigate(['/usuarios/enderecos/editar', key]);
 }
 
+remover(endereco: any) {
+  this.alert.ShowConfirmaExclusao(endereco.logradouro+', '+endereco.numero, () => {
+    this.enderecoService.remove(endereco.key)
+      .then( () => {
+        this.toast.show('Endereço removido com sucesso.!!! ');
+      })
+  })
+}
+
 setEnderecoSelecionado(endereco: any) {
   if (this.selecionarEndereco) {
     const enderecoText = this.getEnderecoText(endereco);
