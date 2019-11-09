@@ -9,7 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class EnderecosService {
 
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) { }
+  constructor(private db: AngularFireDatabase,
+              private afAuth: AngularFireAuth) { }
 
 
 getEnderecosPath(){

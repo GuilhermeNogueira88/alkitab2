@@ -1,35 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>contato</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contato</ion-title>
   </ion-toolbar>
-  <ion-back-button></ion-back-button>
 </ion-header>
 
 
-
+<!-- <form [formGroup]="formContato" (ngSubmit)="onSubmit()"> -->
 <ion-content>
-<div class='center'>
-  <p>  Fale conosco, nos envie sugestões, </p>
-    <p>reclamações ou elogios. </p>
-</div>
 
+  <br>
+  <br>
+  <br>
+  <div text-center>
+ <h3>  Fale conosco, nos envie sugestões, </h3>
+ <h3>  reclamações ou elogios. </h3>
+</div>
 <br>
+<br>
+<br>
+
+  <div text-center>
+  <ion-label>escreva aqui</ion-label>
+ </div>
+
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <label>escreva aqui</label>
-  <br>
-  <br>
-  <ion-card padding="stretch"><ion-textarea></ion-textarea></ion-card>
+ 
+  <ion-card padding="stretch">
+    <ion-textarea>
+    <!-- <ion-input type="text" formControlName="mensagem">
+    </ion-input> -->
+  </ion-textarea>
+  </ion-card>
+  
   <br>
   <br>
   <br>
   
-  <ion-button type="submit">Enviar</ion-button>
+  <ion-button expand="block" size="large" type="submit">
+    Enviar
+    <ion-icon slot="end" name="arrow-forward"></ion-icon>
+  </ion-button>
 
 </ion-content>
+<!-- </form> -->

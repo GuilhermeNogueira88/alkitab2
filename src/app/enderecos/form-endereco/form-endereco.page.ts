@@ -31,8 +31,8 @@ export class FormEnderecoPage implements OnInit {
                       numero: endereco.numero,
                       complemento: endereco.complemento,
                       bairro: endereco.bairro
-                    })
-                  })
+                    });
+                  });
                 }
               }
 

@@ -89,6 +89,15 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'sobre',
+    children: [
+      {
+        path: 'contato',
+        loadChildren: '/contato/contato.module#ContatoPageModule'
+      }
+  ]
+  },
+  {
     path: '',
     redirectTo: '/tabs/produtos',
     pathMatch: 'full'

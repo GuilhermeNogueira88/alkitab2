@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'perfil', loadChildren: './usuarios/perfil/perfil.module#PerfilPageModule' },
   { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },
   { path: 'form-pagamento', loadChildren: './pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule' },
-  { path: 'lista-pedido', loadChildren: './pedidos/lista-pedido/lista-pedido.module#ListaPedidoPageModule' },  { path: 'contato', loadChildren: './contato/contato.module#ContatoPageModule' }
+  { path: 'lista-pedido', loadChildren: './pedidos/lista-pedido/lista-pedido.module#ListaPedidoPageModule' },
+  { path: 'contato', loadChildren: './contato/contato.module#ContatoPageModule' }
 
 
 ];
