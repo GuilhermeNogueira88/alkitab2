@@ -8,8 +8,8 @@
 </ion-header>
 
 
-<!-- <form [formGroup]="formContato" (ngSubmit)="onSubmit()"> -->
-<ion-content>
+<form [formGroup]="formContato" (ngSubmit)="onSubmit()">
+
 
   <br>
   <br>
@@ -18,27 +18,29 @@
  <h3>  Fale conosco, nos envie sugestões, </h3>
  <h3>  reclamações ou elogios. </h3>
 </div>
+
 <br>
 <br>
 <br>
 
-  <br>
- 
+
+ <div>
   <ion-card padding="stretch">
     <ion-textarea placeholder='Escreva aqui'>
-    <!-- <ion-input type="text" formControlName="mensagem">
-    </ion-input> -->
+    <ion-input type="text" formControlName="texto">
+    </ion-input>
   </ion-textarea>
   </ion-card>
-  
+</div>
+
   <br>
   <br>
   <br>
   
+  <div>
   <ion-button expand="block" size="large" type="submit">
     Enviar
     <ion-icon slot="end" name="arrow-forward"></ion-icon>
   </ion-button>
-
-</ion-content>
-<!-- </form> -->
+</div>
+</form>
