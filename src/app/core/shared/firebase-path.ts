@@ -6,4 +6,5 @@ export class FirebasePath {
     public static PEDIDOS: string ="pedidos/";
     public static PEDIDOS_PRODUTOS: string ="pedidosProdutos/";
     public static CARRINHO: string ="carrinho/";
+    public static CONTATO: string = "contato/"
 }

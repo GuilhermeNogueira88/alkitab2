@@ -1,6 +1,9 @@
+import { ContatoService } from './shared/contato.service';
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ToastService } from '../core/shared/toast.service';
 
 
 @Component({
@@ -10,23 +13,33 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 })
 export class ContatoPage implements OnInit {
  formContato: FormGroup;
+  router: any;
+  key: string;
 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private contatoService: ContatoService,
+              private route: ActivatedRoute,
+              private toast: ToastService) { }
 
-  ngOnInit() {
-   this.formContato = new FormGroup ({
-  texto: new FormControl(null)
-   });
+              ngOnInit() {
+                this.criarFormulario();
+              }
+
+
+  onSubmit(){
+    if (this.formContato.valid){
+      this.contatoService.insert(this.formContato.value);
+    }
+    this.toast.show('Endereço salvo com sucesso');
+    this.formContato.reset();
   }
 
-  onSubmit() {
-console.log(this.formContato)
+  criarFormulario(){
+    this.formContato = this.formBuilder.group({
+      texto: ['']
+    });
   }
-
-  // criarFormulario(){
- 
-  //   });
 
   }
 
