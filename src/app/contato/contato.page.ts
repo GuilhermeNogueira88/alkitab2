@@ -31,7 +31,7 @@ export class ContatoPage implements OnInit {
     if (this.formContato.valid){
       this.contatoService.insert(this.formContato.value);
     }
-    this.toast.show('Endereço salvo com sucesso');
+    this.toast.show('Mensagem salva com sucesso');
     this.formContato.reset();
   }
 
