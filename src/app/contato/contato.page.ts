@@ -1,7 +1,7 @@
 import { ContatoService } from './shared/contato.service';
 
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from '../core/shared/toast.service';
 
@@ -35,9 +35,9 @@ export class ContatoPage implements OnInit {
     this.formContato.reset();
   }
 
-  criarFormulario(){
+  criarFormulario() {
     this.formContato = this.formBuilder.group({
-      texto: ['']
+      texto: ['',[Validators.required, Validators.minLength(10)]]
     });
   }
 

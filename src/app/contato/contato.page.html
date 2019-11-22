@@ -7,19 +7,22 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+  <div class="login-logo">
+    <img src="../../assets/logo.png" alt="logo">
+  </div>
+  <div class="about-info" text-center>
+    <h4 class="ion-padding-start">Livraria Al Kitab</h4>
 
 <form [formGroup]="formContato" (ngSubmit)="onSubmit()">
 
-
-  <br>
-  <br>
   <br>
   <div text-center>
  <h3>  Fale conosco, nos envie sugestões, </h3>
  <h3>  reclamações ou elogios. </h3>
 </div>
 
-<br>
+
 <br>
 <br>
 
@@ -39,7 +42,7 @@
   <br>
   
   <div>
-  <ion-button expand="block" size="large" type="submit" [routerLink]="['']">
+  <ion-button color="teal" expand="block" size="large" type="submit" [routerLink]="['']">
     Enviar
     <ion-icon slot="end" name="arrow-forward"></ion-icon>
   </ion-button>
