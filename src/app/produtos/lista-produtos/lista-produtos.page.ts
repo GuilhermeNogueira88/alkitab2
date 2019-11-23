@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ProdutosService } from '../shared/produtos.service';
 import { CarrinhoService } from 'src/app/pedidos/shared/carrinho.service';
+import { UsuariosService } from 'src/app/usuarios/shared/usuarios.service';
 
 
 @Component({
@@ -16,16 +17,19 @@ produtos: Observable<any[]>;
 categorias: Observable<any[]>;
 categoriaSelecionada: string;
 carrinhoPossuiItens: boolean = false;
+user: any = {};
 
 constructor(private router: Router,
             private produtosService: ProdutosService,
-            private carrinhoService: CarrinhoService   ) { }
+            private carrinhoService: CarrinhoService,
+            private usuarioService: UsuariosService   ) { }
 
   ngOnInit() {
     this.produtos = this.produtosService.getAll();
     this.categorias = this.produtosService.getCategoriasAll();
     this.carrinhoService.carrinhoPossuiItens().subscribe( (existemItens: boolean) =>{
     this.carrinhoPossuiItens = existemItens;
+    this.user = this.usuarioService.getDadosUsuario();
      });
   }
 

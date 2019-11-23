@@ -37,7 +37,7 @@ export class ContatoPage implements OnInit {
 
   criarFormulario() {
     this.formContato = this.formBuilder.group({
-      texto: ['',[Validators.required, Validators.minLength(10)]]
+      texto: ['']
     });
   }
 

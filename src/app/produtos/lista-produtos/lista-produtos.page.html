@@ -1,13 +1,18 @@
 <ion-header>
   <ion-toolbar color="teal">
-    <ion-title>Produtos</ion-title>
+    <ion-title>Produtos </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
     <ion-item>
+      
 
+        <h5> <h6>Bem vindo, </h6>{{ user.name }}</h5>
+      </ion-item>
+
+      <ion-item>
       <ion-label>Categoria</ion-label>
       <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
         <ion-select-option value="" [selected]="true">Todas</ion-select-option>

@@ -2,11 +2,13 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 import { FirebasePath } from 'src/app/core/shared/firebase-path';
 import { map } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutosService {
+  private afAuth: AngularFireAuth;
 
   constructor(private db: AngularFireDatabase) { }
 
@@ -27,6 +29,15 @@ export class ProdutosService {
 
   }
 
+  // // metodo criado para trazer do do banco o nome do usuario
+  // getDadosUsuario(){
+  //   const user = { name: ''};
+  //   if (this.afAuth.auth.currentUser) {
+  //     user.name = this.afAuth.auth.currentUser.displayName;
+  //   }
+
+  //   return user;
+  // }
 
   getCategoriasAll() {
     return this.db.list(FirebasePath.CATEGORIAS).snapshotChanges().pipe(
