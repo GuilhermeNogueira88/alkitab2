@@ -8,9 +8,17 @@
 </ion-header>
 
 <ion-content padding>
+  
+  <div class="center">
+      
+       
+    <img [src]="produto.img">
   <h1>{{ produto.nome }}</h1>
+  <h5>Autor: {{ produto.autor}}</h5>
+  <h5>Editora: {{ produto.editora}}</h5>
   <pre text-wrap>{{ produto.descricao }}</pre>
   <app-valor [valor]="produto.preco"></app-valor>
+</div>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
@@ -36,10 +44,10 @@
       </ion-grid>
     </ion-item>
       
-    <ion-item>
+    <!-- <ion-item>
       <ion-label position="stacked">Observação</ion-label>
       <ion-textarea formControlName="observacao"></ion-textarea>
-    </ion-item>
+    </ion-item> -->
 
     <ion-item text-end>
       <ion-label>
