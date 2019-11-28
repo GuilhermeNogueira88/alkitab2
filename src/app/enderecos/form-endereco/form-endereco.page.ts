@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'src/app/core/shared/toast.service';
 import { EnderecosService } from '../shared/enderecos.service';
+import { NavController } from '@ionic/angular';
+import { ListaEnderecoPage } from '../lista-endereco/lista-endereco.page';
 
 @Component({
   selector: 'app-form-endereco',
@@ -16,7 +18,8 @@ export class FormEnderecoPage implements OnInit {
   constructor(private enderecoService: EnderecosService,
               private formBuilder: FormBuilder,
               private route: ActivatedRoute,
-              private toast: ToastService) { }
+              private toast: ToastService,
+              public navCtrl: NavController) { }
 
               ngOnInit() {
                 this.criarFormulario();
@@ -47,6 +50,12 @@ export class FormEnderecoPage implements OnInit {
                 });
               }
 
+
+              // voltarPagina(){
+              //   this.navCtrl.push(ListaEnderecoPage, {}, {animate: true} );
+              // }
+
+
               onSubmit(){
                 if (this.formEndereco.valid){
                   let result : Promise<{}>;
@@ -61,7 +70,9 @@ export class FormEnderecoPage implements OnInit {
                       this.toast.show('Endereço salvo com sucesso');
                       if(!this.key){
                         this.criarFormulario();
+                        // this.voltarPagina();
                       }
+                      
                     })
                     .catch( () => {
                       this.toast.show('Erro ao salvar o endereço');

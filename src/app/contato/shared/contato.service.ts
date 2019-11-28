@@ -18,7 +18,7 @@ getContatosPath() {
 
 insert(contato: any) {
   const path = this.getContatosPath();
-  return  this.db.list(path).push(contato);
+  return  this.db.list(FirebasePath.CONTATO).push(contato);
 }
 
 

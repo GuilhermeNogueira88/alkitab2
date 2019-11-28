@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <form [formGroup]="formEndereco" (ngSubmit)="onSubmit()">
-    <a  href="#" onclick="window.open('http://www.buscacep.correios.com.br/sistemas/buscacep/BuscaCepEndereco.cfm', '_system', 'location=yes'); return false;"> Não lembra seu cep? clica aqui </a>
+    <a  href="#" onclick="window.open('http://www.buscacep.correios.com.br/sistemas/buscacep/BuscaCepEndereco.cfm', '_system', 'location=yes'); return false;"> Não lembra seu cep? clique aqui </a>
     <ion-item>
       <ion-label position="stacked">CEP</ion-label>
       <ion-input type="number" formControlName="cep" placeholder="somente números"></ion-input>
@@ -37,7 +37,7 @@
     </ion-item>
 
     <div margin-vertical>
-      <ion-button color="primary" expand="block" type="submit">Salvar</ion-button>
+      <ion-button color="teal" expand="block" type="submit" >Salvar</ion-button>
     </div>
   </form>
 </ion-content>
