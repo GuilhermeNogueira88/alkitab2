@@ -13,7 +13,7 @@
       </ion-item>
 
       <ion-item>
-      <ion-label>Categoria</ion-label>
+      <ion-label>Filtrar por categoria</ion-label>
       <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
         <ion-select-option value="" [selected]="true">Todas</ion-select-option>
         <ion-select-option *ngFor="let categoria of categorias | async" [value]="categoria.key">{{ categoria.nome }}
@@ -28,7 +28,7 @@
       </ion-avatar>
       <ion-label text-wrap>
         <h1>{{ produto.nome }}</h1>
-        <pre text-wrap>{{ produto.descricao }}</pre>
+        <!-- <pre text-wrap>{{ produto.descricao }}</pre> -->
         <app-valor [valor]="produto.preco"></app-valor>
         <hr>
         <ion-button color="teal">Comprar</ion-button>
