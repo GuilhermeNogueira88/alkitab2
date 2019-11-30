@@ -1,4 +1,3 @@
-
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { NgModule } from '@angular/core';
@@ -94,7 +93,7 @@ const routes: Routes = [
     children: [
       {
         path: 'contato',
-        loadChildren: '/contato/contato.module#ContatoPageModule'
+        loadChildren: '../contato/contato.module#ContatoPageModule'
       }
   ]
   },

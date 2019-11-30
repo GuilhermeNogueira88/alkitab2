@@ -3,13 +3,17 @@ import { map } from 'rxjs/operators';
 import { FirebasePath } from 'src/app/core/shared/firebase-path';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { toastController } from '@ionic/core';
+import { ToastService } from 'src/app/core/shared/toast.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarrinhoService {
 
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) { }
+  constructor(private db: AngularFireDatabase,
+              private afAuth: AngularFireAuth,
+              private toast: ToastService) { }
 
   getCarrinhoProdutosRef(){
     const path = `${FirebasePath.CARRINHO}${this.afAuth.auth.currentUser.uid}/${FirebasePath.PRODUTOS}`;
@@ -23,8 +27,8 @@ export class CarrinhoService {
   carrinhoPossuiItens(){
     return this.getCarrinhoProdutosRef().snapshotChanges().pipe(
       map(changes => {
-        return changes.length >0
-      })
+        return changes.length > 0;
+      }) 
     )
   }
 
