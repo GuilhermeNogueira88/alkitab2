@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProdutosService } from 'src/app/produtos/shared/produtos.service';
 import { CarrinhoService } from '../../shared/carrinho.service';
 import { ToastService } from 'src/app/core/shared/toast.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-form-item-pedido',
@@ -11,21 +12,26 @@ import { ToastService } from 'src/app/core/shared/toast.service';
   styleUrls: ['./form-item-pedido.page.scss'],
 })
 export class FormItemPedidoPage implements OnInit {
-produto: any = {}
-form: FormGroup;
-total: number = 0;
+  produto: any = {}
+  form: FormGroup;
+  total: number = 0;
+  
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,
-              private router: Router, private produtosService: ProdutosService,
+  constructor(private formBuilder: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router,
+              private produtosService: ProdutosService,
+              private afAuth: AngularFireAuth,
               private carrinhoService: CarrinhoService,
-              private toast: ToastService) { }
+              private toast: ToastService
+  ) { }
 
   ngOnInit() {
     this.criarFormulario();
     // comentário...
     let key = this.route.snapshot.paramMap.get('key');
     if (key) {
-      const subscribe = this.produtosService.getByKey(key).subscribe( (produto: any) => {
+      const subscribe = this.produtosService.getByKey(key).subscribe((produto: any) => {
         subscribe.unsubscribe();
         this.produto = produto;
 
@@ -43,7 +49,7 @@ total: number = 0;
 
   }
 
-  criarFormulario(){
+  criarFormulario() {
     this.form = this.formBuilder.group({
       produtoKey: [''],
       produtoNome: [''],
@@ -55,38 +61,59 @@ total: number = 0;
     })
   }
 
-  executaCalcularTotal(){
+  executaCalcularTotal() {
     this.atualizaTotal(this.form.value.quantidade);
   }
 
-  adicionarQuantidade(){
+  adicionarQuantidade() {
     let qtd = this.form.value.quantidade;
     qtd++;
     this.atualizaTotal(qtd);
   }
 
-  removerQuantidade(){
+
+
+  removerQuantidade() {
     let qtd = this.form.value.quantidade;
     qtd--;
-    if(qtd <=0) 
-    qtd=1;
+    if (qtd <= 0)
+      qtd = 1;
 
-    this.atualizaTotal(qtd);  
+    this.atualizaTotal(qtd);
   }
 
-  atualizaTotal(quantidade: number){
+  atualizaTotal(quantidade: number) {
     this.total = this.produto.preco * quantidade;
-    this.form.patchValue({quantidade: quantidade, total: this.total});
+    this.form.patchValue({ quantidade: quantidade, total: this.total });
   }
 
-  onSubmit(){
-    if (this.form.valid) {
-      this.carrinhoService.insert(this.form.value)
-        .then( () => {
-          this.toast.show('Produto adicionado com sucesso !!!');
-          this.router.navigate(['/tabs/produtos']);
-        })
-    }
+  // logar() {
+  //   this.afAuth.auth.onAuthStateChanged(user => {
+  //     if (!user) {
+  //       this.router.navigate(['/login'])
+  //     } else {
+  //       this.router.navigate(['/perfil']);
+  //     }
+  //   })
+
+  // }
+
+
+  onSubmit() {
+    this.afAuth.auth.onAuthStateChanged(user => {
+      if (!user) {
+        this.toast.show('É necessário efetuar Login ou Criar uma conta !!!');
+        this.router.navigate(['/login'])
+      } else {
+        if (this.form.valid) {
+          this.carrinhoService.insert(this.form.value)
+            .then(() => {
+              this.toast.show('Produto adicionado com sucesso !!!');
+              this.router.navigate(['/tabs/produtos']);
+            });
+        }
+      }
+    });
   }
 
 }

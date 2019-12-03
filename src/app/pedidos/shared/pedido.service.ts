@@ -22,6 +22,7 @@ export class PedidoService {
     SAIU_PARA_ENTREGA: 2,
     ENTREGUE: 3
   };
+  router: any;
 
   constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth, 
     private carrinhoService: CarrinhoService, private dateFormat: DatePipe) { }
@@ -60,6 +61,16 @@ export class PedidoService {
       })
     })
   }
+
+
+  logar() {
+    this.afAuth.auth.onAuthStateChanged(user => {
+      if (!user) {
+        this.router.navigate(['/login'])
+      } else {
+       this.router.navigate(['/perfil']);
+      }
+    })}
 
   private criarObjetoPedido(pedido: any){
     const numeroPedido = '#' + this.dateFormat.transform(new Date(), 'ddMMyyyyHHmmss');

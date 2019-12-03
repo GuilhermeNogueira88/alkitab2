@@ -57,6 +57,7 @@ export class UsuariosService {
     return this.afAuth.auth.signOut();
   }
 
+
   getDadosUsuario(){
     const user = { name: '', email: ''};
     if (this.afAuth.auth.currentUser) {

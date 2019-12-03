@@ -9,6 +9,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class ProdutosService {
   private afAuth: AngularFireAuth;
+  router: any;
 
   constructor(private db: AngularFireDatabase) { }
 
@@ -28,6 +29,7 @@ export class ProdutosService {
 
 
   }
+  
 
   // // metodo criado para trazer do do banco o nome do usuario
   // getDadosUsuario(){
@@ -60,4 +62,11 @@ export class ProdutosService {
          })
        );
      }
-}
+
+
+
+
+     
+
+    
+  }

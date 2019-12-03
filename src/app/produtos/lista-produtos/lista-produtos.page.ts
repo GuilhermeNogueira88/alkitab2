@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ProdutosService } from '../shared/produtos.service';
 import { CarrinhoService } from 'src/app/pedidos/shared/carrinho.service';
 import { UsuariosService } from 'src/app/usuarios/shared/usuarios.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -22,7 +23,8 @@ user: any = {};
 constructor(private router: Router,
             private produtosService: ProdutosService,
             private carrinhoService: CarrinhoService,
-            private usuarioService: UsuariosService   ) { }
+            private usuarioService: UsuariosService,
+            private afAuth: AngularFireAuth  ) { }
 
   ngOnInit() {
     this.produtos = this.produtosService.getAll();
@@ -40,5 +42,9 @@ buscarProdutos() {
 adicionarProduto(produtoKey: string) {
   this.router.navigate(['pedido/carrinho/novo-item/', produtoKey]);
   }
+
+ 
+
+  
 
 }
