@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar color="teal">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-buttons class="branco" slot="start">
+      <ion-back-button ></ion-back-button>
     </ion-buttons>
-    <ion-title>Adicionando novo produto</ion-title>
+    <ion-title class="branco">Adicionando novo produto</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -32,12 +32,12 @@
         <ion-row>
           <ion-col>
             <ion-button expand="block" color="teal" (click)="adicionarQuantidade()">
-              <ion-icon name="add"></ion-icon>
+              <ion-icon class="branco" name="add"></ion-icon>
             </ion-button>
           </ion-col>
           <ion-col>
             <ion-button expand="block" color="teal" (click)="removerQuantidade()">
-              <ion-icon name="remove"></ion-icon>
+              <ion-icon class="branco" name="remove"></ion-icon>
             </ion-button>
           </ion-col>
         </ion-row>
@@ -58,7 +58,7 @@
     <div margin-vertical>
 
 
-      <ion-button color="teal" expand="block" type="submit"  >Adicionar ao carrinho</ion-button>
+      <ion-button color="teal" expand="block" type="submit"> <b class="branco">Adicionar ao carrinho</b></ion-button>
     </div>
   </form>
 </ion-content>

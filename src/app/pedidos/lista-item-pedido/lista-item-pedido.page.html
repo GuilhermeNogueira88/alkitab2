@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar color="teal">
-    <ion-buttons slot="start">
+    <ion-buttons class="branco"slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Carrinho</ion-title>
+    <ion-title class="branco">Carrinho</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,7 +21,7 @@
           <ion-row align-items-center>
             <ion-col>
               <ion-button expand="block" color="teal" (click)="adicionarQuantidade(item)">
-                <ion-icon name="add"></ion-icon>
+                <ion-icon class="branco" name="add"></ion-icon>
               </ion-button>
             </ion-col>
             <ion-col text-center>
@@ -29,7 +29,7 @@
             </ion-col>
             <ion-col>
               <ion-button expand="block" color="teal" (click)="removerQuantidade(item)">
-                <ion-icon name="remove"></ion-icon>
+                <ion-icon class="branco" name="remove"></ion-icon>
               </ion-button>
             </ion-col>
           </ion-row>
@@ -45,7 +45,7 @@
   </p>
 
   <ion-button color="teal" expand="block" size="large" [routerLink]="['/pedido/forma-pagamento']">
-    Forma de pagamento
-    <ion-icon slot="end" name="arrow-forward"></ion-icon>
+    <b class="branco">Forma de pagamento</b>
+    <ion-icon class="branco" slot="end" name="arrow-forward"></ion-icon>
   </ion-button>
 </ion-footer>

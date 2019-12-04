@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar color="teal">
-    <ion-buttons slot="start">
+    <ion-buttons class="branco" slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Pagamento</ion-title>
+    <ion-title class="branco">Pagamento</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,14 +13,14 @@
       <!-- Grupo forma de pagamento -->
       <ion-item-group>
         <ion-item-divider color="light">
-          <ion-label>
+          <ion-label class="branco">
             Pague na entrega
           </ion-label>
         </ion-item-divider>
         <ion-item>
-          <ion-label>Forma de pagamento</ion-label>
+          <ion-label class="branco">Forma de pagamento</ion-label>
           <ion-select formControlName="formaPagamento">
-            <ion-select-option value="" [selected]="true">- Escolha -</ion-select-option>
+            <ion-select-option  value="" [selected]="true">- Escolha -</ion-select-option>
             <ion-select-option *ngFor="let formaPagamento of formasPagamento" [value]="formaPagamento.valor">{{
               formaPagamento.descricao }}</ion-select-option>
           </ion-select>
@@ -105,8 +105,8 @@
     <div margin-vertical>
       <p padding-horizontal text-right><b>Total do pedido: </b><app-valor [valor]="total"></app-valor></p>
       <ion-button color="teal"expand="block" size="large" type="submit">
-        Realizar pedido
-        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        <b class="branco">Realizar pedido</b>
+        <ion-icon class="branco" slot="end" name="arrow-forward"></ion-icon>
       </ion-button>
     </div>
 

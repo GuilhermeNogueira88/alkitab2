@@ -1,31 +1,31 @@
 <ion-header>
   <ion-toolbar color="teal">
-    <ion-buttons slot="start">
+    <ion-buttons class="branco" slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Criar conta</ion-title>
+    <ion-title class="branco">Criar conta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <form [formGroup]="formCriarConta" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="stacked">Nome</ion-label>
+      <ion-label  position="stacked">Nome</ion-label>
       <ion-input type="text" formControlName="nome"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">E-mail</ion-label>
+      <ion-label  position="stacked">E-mail</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Senha</ion-label>
+      <ion-label  position="stacked">Senha</ion-label>
       <ion-input type="password" formControlName="senha"></ion-input>
     </ion-item>
 
     <div margin-vertical>
-      <ion-button color="teal" expand="block" type="submit">Criar conta</ion-button>
+      <ion-button  color="teal" expand="block" type="submit"><b class="branco">Criar conta</b></ion-button>
     </div>
   </form>
 </ion-content>

@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar color="teal">
-    <ion-title>login</ion-title>
+      <ion-buttons class="branco" slot="start">
+          <ion-back-button [routerLink]="['']" ></ion-back-button>
+        </ion-buttons>
+    <ion-title class="branco">login</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,10 +20,11 @@
     </ion-item>
 
     <div margin-vertical>
-      <ion-button color="teal" expand="block" type="submit">Entrar</ion-button>
+      <ion-button color="teal" expand="block" type="submit"><b class="branco">Entrar</b></ion-button>
     </div>
   </form>
 
   <ion-button expand="block" color="dark" fill="clear" margin-top [routerLink]="['/esqueci-senha']">Esqueci minha senha</ion-button>
   <ion-button expand="block" color="dark" fill="clear" [routerLink]="['/criar-conta']">Criar uma conta</ion-button>
+  <!-- <ion-button  expand="block" color="dark" fill="clear" [routerLink]="['']">Veja as Ofertas</ion-button> -->
 </ion-content>
